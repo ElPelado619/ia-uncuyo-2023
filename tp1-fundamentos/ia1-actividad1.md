@@ -2,7 +2,7 @@
 - Alumno: Agustín Yornet
 - Legajo: 13921
 
-## Buscar 2 ejemplos de aplicaciones de inteligencia artificial.
+## Buscar dos ejemplos de aplicaciones de inteligencia artificial.
 
 ### RealityScan 
 - Es una aplicación que te permite crear modelos 3D de alta fidelidad capturando objetos del mundo real con un smartphone o tablet. 
