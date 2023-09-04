@@ -10,8 +10,7 @@ OBSTACLE_PERCENTAGE = 8
 
 dataset = [None] * 30
 
-
-# GENERACIÓN DEL CONJUNTO DE DATOS
+# Generación del conjunto de datos
 for k in range (0,30):
     dataset[k] = grid.init_grid(GRID_SIZE,CELL_SIZE,OBSTACLE_PERCENTAGE)
 
@@ -20,13 +19,12 @@ bfs_states = [None] * 30
 for i in range (0,30):
     print("\n[ITERACION " + str(i+1) + "]")
     (matrix,start,end) = dataset[i]
-
     (is_solvable,path) = bf.bfs(matrix,start,end)
+
     if is_solvable:
         print("Se encontró un camino.")
         bfs_states[i] = len(path)
         print("Cantidad de estados: " + str(bfs_states[i]))
-        
     else:
         print("No se encontró un camino.")
 
