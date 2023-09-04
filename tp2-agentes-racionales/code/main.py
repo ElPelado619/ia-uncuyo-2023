@@ -1,6 +1,8 @@
 import environment
 import agent
 import numpy
+import matplotlib.pyplot as plt
+
 moves = [0,0,0,0,0,0,0,0,0,0]
 perf  = [0,0,0,0,0,0,0,0,0,0]
 is_clean = False
@@ -15,6 +17,8 @@ for j in range (1,8):
 
         (moves[i],perf[i]) = A.think()
 
+        
+
         del E
         del A
 
@@ -22,3 +26,7 @@ for j in range (1,8):
     print('> Perf:  ' + str(perf))
 
     
+plt.boxplot(perf)
+ 
+# show plot
+plt.show()

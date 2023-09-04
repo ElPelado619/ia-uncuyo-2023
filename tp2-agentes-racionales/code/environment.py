@@ -24,7 +24,7 @@ class Environment:
             print(list)
 
     def accept_action(self,action,x,y):
-        if action == 'suck':
+        if action == 'suck' and (self.chart[x][y] % 2 != 0):
             self.chart[x][y] -= 1
             self.performance += 1
 

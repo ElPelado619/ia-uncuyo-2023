@@ -189,5 +189,5 @@ class Agent:
         if moves < 1000:
             is_clean = True
 
-        return (moves,self.environment.performance, is_clean)
+        return (moves,self.environment.performance)
 
