@@ -1,3 +1,5 @@
+# PUDISTE SINCRONIZAR
+
 import grid
 import bfsearch as bf
 import numpy as np
