@@ -51,25 +51,25 @@ def init_grid(GRID_SIZE, CELL_SIZE,OBSTACLE_PERCENTAGE):
     # Inicializar pygame
     pygame.init()
 
-    # # Crear la ventana de visualización
-    # window_size = (GRID_SIZE * CELL_SIZE, GRID_SIZE * CELL_SIZE)
-    # screen = pygame.display.set_mode(window_size)
-    # pygame.display.set_caption("Entorno del Agente")
+    # Crear la ventana de visualización
+    window_size = (GRID_SIZE * CELL_SIZE, GRID_SIZE * CELL_SIZE)
+    screen = pygame.display.set_mode(window_size)
+    pygame.display.set_caption("Entorno del Agente")
 
 
     # Crear la grilla con obstáculos
     obstacle_grid = create_obstacle_grid(GRID_SIZE,OBSTACLE_PERCENTAGE)
 
-    # # Bucle principal de visualización
-    # running = True
-    # while running:
-    #     for event in pygame.event.get():
-    #         if event.type == pygame.QUIT:
-    #             running = False
+    # Bucle principal de visualización
+    running = True
+    while running:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
 
-    #     # # Dibujar la grilla en cada iteración
-    #     # draw_grid(obstacle_grid, GRID_SIZE, CELL_SIZE, screen)
-    #     # pygame.display.flip()
+        # Dibujar la grilla en cada iteración
+        draw_grid(obstacle_grid, GRID_SIZE, CELL_SIZE, screen)
+        pygame.display.flip()
 
     start = search_in_matrix(obstacle_grid,2)
     end = search_in_matrix(obstacle_grid,3)
