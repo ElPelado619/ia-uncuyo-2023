@@ -22,6 +22,7 @@ Los resultados obtenidos por los algoritmos se presentan a continuación.
 
 ### Búsqueda por Anchura
 ![BFS Boxplot](https://i.ibb.co/g9rgg6D/BFS.png)
+
 Los siguientes datos fueron obtenidos:
 - Promedio: $\mu = 65$ .
 - Desviación estándar: $\sigma = 29$.
@@ -29,6 +30,7 @@ Los siguientes datos fueron obtenidos:
 - No hay datos anómalos.
 ### Búsqueda por Profundidad
 ![DFS Boxplot](https://i.ibb.co/qJR5fKZ/DFS.png)
+
 Los siguientes datos fueron obtenidos:
 - Promedio: $\mu = 941$ .
 - Desviación estándar: $\sigma = 792$.
@@ -46,6 +48,7 @@ Con un límite igual al promedio del DFS, los siguientes datos fueron obtenidos:
 
 ### Búsqueda Uniforme
 ![UCS Boxplot](https://i.ibb.co/g9rgg6D/UCS.png)
+
 Los siguientes datos fueron obtenidos:
 - Promedio: $\mu = 65$ .
 - Desviación estándar: $\sigma = 29$.
