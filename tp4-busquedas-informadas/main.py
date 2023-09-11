@@ -4,13 +4,7 @@ import grid
 import A_star_search as astar
 import numpy as np
 import matplotlib.pyplot as plt
-import csv
 
-csv_file = 'results.csv'
-
-with open(csv_file, mode='a', newline='') as archivo_csv:
-    # Crea un objeto escritor CSV
-    writer = csv.writer(archivo_csv)
 
 # Dimensiones de la grilla
 GRID_SIZE = 100
