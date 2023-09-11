@@ -22,6 +22,7 @@ $h(n) = \sqrt{(x_f-x_n)^2 + (y_f-y_n)^2}$
 Se utiliza la distancia euclidiana entre el nodo actual (n) y el nodo objetivo (f), que va a ser el el mismo en cada iteración, como la heurística $h(n)$ en A*, ya que proporciona una estimación razonable del costo restante para llegar al objetivo, y A* seguirá siendo eficiente en su búsqueda, ya que es completamente observable y determinista.
 
 ![A* Boxplot](https://i.ibb.co/kHH3ZTM/ASTAR.png)
+
 Los siguientes datos fueron obtenidos:
 - Promedio: $\mu = 63$ .
 - Desviación estándar: $\sigma = 24$.
