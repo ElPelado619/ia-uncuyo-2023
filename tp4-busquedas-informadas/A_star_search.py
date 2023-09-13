@@ -16,7 +16,7 @@ def astar(matrix, start, end):
     # Cola de prioridad para A* 
     open_list = PriorityQueue()
     open_list.put((0, start))  # (f(n), nodo)
-    came_from = {}  # To reconstruct the path
+    came_from = {}  # Reconstrye el camino
 
     g_score = {point: float('inf') for point in start}
     g_score[start] = 0
