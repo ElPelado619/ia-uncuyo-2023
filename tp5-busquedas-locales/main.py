@@ -4,9 +4,20 @@ import time
 import numpy as np
 import matplotlib.pyplot as plt
 
+# Función que guarda una tupla de valores en un archivo CSV sin borrar el contenido previo
+# Parámetros: values - Tupla de valores a guardar.
+#             name - Nombre del archivo CSV.
+def save_csv(values,name):
+    # Abre el archivo en modo append.
+    file = open(name + ".csv","a")
+    # Escribe los valores en el archivo.
+    file.write(str(values[0]) + "," + str(values[1]) + "," + str(values[2]) + "," + str(values[3]) + "\n")
+    # Cierra el archivo.
+    file.close()
+
 def solver(n,max_states,option):
     if option == 1:
-        return hc.hill_climbing(n,max_states)
+        return hc.hill_climbing(n,max_states,False)
     elif option == 2:
         return sa.simulated_annealing(n,max_states,100,0.99)
 
@@ -35,18 +46,21 @@ def avg_and_std(n,name,option):
         # Almacena el valor de la función H.
         hs[i] = result[1]
 
-    avg = np.average(states)
-    std = np.std(states)
+        if option == 1:
+            save_csv(("Hill Climbing",n,times[i],states[i],hs[i]),"results")
+        elif option == 2:
+            save_csv(("Simulated Annealing",n,times[i],states[i],hs[i]),"results")
+        
 
-    return times
+    return times, states, hs
 
 for n in [4,8,10,12,15]:
     print("\n")
-    t1 = avg_and_std(n,"Hill Climbing",1)
+    t1, s1, h1 = avg_and_std(n,"Hill Climbing",1)
     print("Avg for " + str(n) + " queens: " + str(np.average(t1)) + " s")
 
     print("\n")
-    t2 = avg_and_std(n,"Simulated Annealing",2)
+    t2, s2, h2 = avg_and_std(n,"Simulated Annealing",2)
     print("Avg for " + str(n) + " queens: " + str(np.average(t2)) + " s")
 
     # Grafica en un grafico de cajas y bigotes los tiempos de ejecución de los dos algoritmos,
@@ -66,6 +80,5 @@ for n in [4,8,10,12,15]:
     plt.text(2.1,np.min(t2),str(np.round(np.min(t2),4)))
 
     plt.show()
-
 
 
