@@ -11,7 +11,8 @@ def save_csv(values,name):
     # Abre el archivo en modo append.
     file = open(name + ".csv","a")
     # Escribe los valores en el archivo.
-    file.write(str(values[0]) + "," + str(values[1]) + "," + str(values[2]) + "," + str(values[3]) + "\n")
+    file.write(str(values[0]) + "," + str(values[1]) + "," + str(values[2]) + "," + str(values[3]) 
+               + "," + str(values[4]) +  "\n")
     # Cierra el archivo.
     file.close()
 
