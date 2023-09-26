@@ -1,5 +1,6 @@
 import hillclimbing as hc
 import simannealing as sa
+import genetic as ga
 import time
 import numpy as np
 import matplotlib.pyplot as plt
@@ -21,6 +22,9 @@ def solver(n,max_states,option):
         return hc.hill_climbing(n,max_states,False)
     elif option == 2:
         return sa.simulated_annealing(n,max_states,100,0.99)
+    elif option == 3:
+        return ga.genetic_algorithm(n,5,1000,0.1,4,False)
+    
 
 def avg_and_std(n,name,option):
     # Arreglo nulo de 30 elementos
@@ -51,6 +55,8 @@ def avg_and_std(n,name,option):
             save_csv(("Hill Climbing",n,times[i],states[i],hs[i]),"results")
         elif option == 2:
             save_csv(("Simulated Annealing",n,times[i],states[i],hs[i]),"results")
+        elif option == 3:
+            save_csv(("Genetic Algorithm",n,times[i],states[i],hs[i]),"results")
         
 
     return times, states, hs
@@ -58,15 +64,20 @@ def avg_and_std(n,name,option):
 for n in [4,8,10,12,15]:
     print("\n")
     t1, s1, h1 = avg_and_std(n,"Hill Climbing",1)
-    print("Avg for " + str(n) + " queens: " + str(np.average(t1)) + " s")
+    print("Avg for " + str(n) + " queens in Hill Climbing: " + str(np.average(t1)) + " s")
 
     print("\n")
     t2, s2, h2 = avg_and_std(n,"Simulated Annealing",2)
-    print("Avg for " + str(n) + " queens: " + str(np.average(t2)) + " s")
+    print("Avg for " + str(n) + " queens in Simulated Annealing: " + str(np.average(t2)) + " s")
+
+    print("\n") 
+    t3, s3, h3 = avg_and_std(n,"Genetic Algorithm",3)
+    print("Avg for " + str(n) + " queens in Genetic Algorithm: " + str(np.average(t3)) + " s")
+
 
     # Grafica en un grafico de cajas y bigotes los tiempos de ejecución de los dos algoritmos,
     # y permite que las cajas tengan diferentes colores.
-    plt.boxplot([t1,t2],labels=["Hill Climbing","Simulated Annealing"],patch_artist=True)
+    plt.boxplot([t1,t2,t3],labels=["Hill Climbing","Simulated Annealing","Genetic Algorithm"],patch_artist=True)
 
     # Dibuja la grilla del grafico de color gris y transparencia de 0.2
     plt.grid(color='gray',alpha=0.2)
