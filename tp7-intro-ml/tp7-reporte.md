@@ -114,14 +114,14 @@ $$d(p,q) = \sqrt{(p_1-q_1)^2 + (p_2-q_2)^2 + (p_3-q_3)^2}$$
 
 Sea $test$ nuestro punto de prueba. Usando esta fórmula, obtenemos los siguientes resultados:
 $$
-\begin {aligned}
+\begin {align}
 d(1,test) &= 3\\
 d(2,test) &= 2\\
 d(3,test) &= 3.16\\
 d(4,test) &= 2.24\\
 d(5,test) &= 1.41\\
 d(6,test) &= 1.73\\
-\end {aligned}
+\end {align}
 $$
 
 
