@@ -56,3 +56,30 @@ Cuando lleguemos a una restricción que involucre tres variables (i.e. A,B y C),
 Repetimos este proceso a medida que avanzamos hacia la raíz del árbol, asegurándonos de que las restricciones de tres variables sean consistentes con las restricciones previamente consideradas. 
 
 Al llegar a la raíz del árbol, habremos verificado que todas las restricciones que involucran n variables son consistentes, lo que cumple con la definición de n-consistencia.
+
+## Resultados de backtracking y forward checking
+
+### Para 4 reinas
+
+![](tiempos_n_4.png)
+![](estados_n_4.png)
+
+### Para 8 reinas
+
+![](tiempos_n_8.png)
+![](estados_n_8.png)
+
+### Para 10 reinas
+
+![](tiempos_n_10.png)
+![](estados_n_10.png)
+
+### Para 12 reinas
+
+![](tiempos_n_12.png)
+![](estados_n_12.png)
+
+### Para 15 reinas
+
+![](tiempos_n_15.png)
+![](estados_n_15.png)
