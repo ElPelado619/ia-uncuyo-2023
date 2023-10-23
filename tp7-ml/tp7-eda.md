@@ -68,37 +68,37 @@ En un principio, parece ser que el algarrobo es la especie más peligrosa. Sin e
 
 ## Inciso b
 
-![a](histogramas/h10.png)
+![a](h10.png)
 
-![a](histogramas/h20.png)
+![a](h20.png)
 
-![a](histogramas/h30.png)
+![a](h30.png)
 
-![a](histogramas/h50.png)
+![a](h50.png)
 
 ## Inciso c
 
 ### Con Inclinación Peligrosa
 
-![a](histogramas/hs10.png)
+![a](hs10.png)
 
-![a](histogramas/hs20.png)
+![a](hs20.png)
 
-![a](histogramas/hs30.png)
+![a](hs30.png)
 
-![a](histogramas/hs50.png)
+![a](hs50.png)
 
 ### Sin Inclinación Peligrosa
 
-![a](histogramas/hn10.png)
+![a](hn10.png)
 
-![a](histogramas/hn20.png)
+![a](hn20.png)
 
-![a](histogramas/hn30.png)
+![a](hn30.png)
 
-![a](histogramas/hn50.png)
+![a](hn50.png)
 
-## Inciso c
+## Inciso d
 
 ``` R
 # Crear el histograma
