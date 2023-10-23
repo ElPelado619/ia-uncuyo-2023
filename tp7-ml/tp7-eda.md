@@ -68,35 +68,35 @@ En un principio, parece ser que el algarrobo es la especie más peligrosa. Sin e
 
 ## Inciso b
 
-![](histogramas/h10.png)
+![a](histogramas/h10.png)
 
-![](histogramas/h20.png)
+![a](histogramas/h20.png)
 
-![](histogramas/h30.png)
+![a](histogramas/h30.png)
 
-![](histogramas/h50.png)
+![a](histogramas/h50.png)
 
 ## Inciso c
 
 ### Con Inclinación Peligrosa
 
-![](histogramas/hs10.png)
+![a](histogramas/hs10.png)
 
-![](histogramas/hs20.png)
+![a](histogramas/hs20.png)
 
-![](histogramas/hs30.png)
+![a](histogramas/hs30.png)
 
-![](histogramas/hs50.png)
+![a](histogramas/hs50.png)
 
 ### Sin Inclinación Peligrosa
 
-![](histogramas/hn10.png)
+![a](histogramas/hn10.png)
 
-![](histogramas/hn20.png)
+![a](histogramas/hn20.png)
 
-![](histogramas/hn30.png)
+![a](histogramas/hn30.png)
 
-![](histogramas/hn50.png)
+![a](histogramas/hn50.png)
 
 ## Inciso c
 
