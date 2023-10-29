@@ -92,10 +92,10 @@ cross_validation <- function(data, num_folds) {
 
 ## Resultados
 
-- |Accuracy|Precision|Sensitivity|Specificity
---|--|--|--|--
-Media|0.887848|NaN|0|1
-Desv. Estándar|0.002|Nan|0|0 
+|- |Accuracy|Precision|Sensitivity|Specificity|
+|--|--|--|--|--|
+|Media|0.887848|NaN|0|1|
+|Desv. Estándar|0.002|Nan|0|0 |
 
 ### Resultados con 5 folds
 
