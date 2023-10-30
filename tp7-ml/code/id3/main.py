@@ -1,29 +1,20 @@
-import numpy as np
 import pandas as pd
-import graphviz 
-from sklearn.preprocessing import LabelEncoder
-from sklearn import tree
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+from decisionTreeClassifier import DecisionTreeClassifier
 
-tennis = pd.read_csv('./tp6-csp/code/id3/tennis.csv')
-Le = LabelEncoder()
+col_names = ["outlook", "temp", "humidity", "windy", "play"]
+data = pd.read_csv("./tp7-ml/code/id3/tennis.csv", skiprows=1,header=None, names=col_names)
+print(data.head(10))
 
-tennis['outlook'] = Le.fit_transform(tennis['outlook'])
-tennis['temp'] = Le.fit_transform(tennis['temp'])
-tennis['humidity'] = Le.fit_transform(tennis['humidity'])
-tennis['windy'] = Le.fit_transform(tennis['windy'])
-tennis['play'] = Le.fit_transform(tennis['play'])
+X = data.iloc[:,:-1].values
+Y = data.iloc[:,-1].values.reshape(-1,1)
 
-y = tennis['play']
-X = tennis.drop(['play'],axis=1)
+X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.1, random_state=42)
 
-clf = tree.DecisionTreeClassifier(criterion = 'entropy')
-clf = clf.fit(X, y)
+classifier = DecisionTreeClassifier(min_samples_split=3, max_depth=3)
+classifier.fit(X_train, Y_train)
+classifier.print_tree()
 
-print(tree.plot_tree(clf))
-
-dot_data = tree.export_graphviz(clf, out_file=None) 
-graph = graphviz.Source(dot_data) 
-graph.render("tennis")
-
-X_pred = clf.predict(X)
-print(X_pred==y)
+Y_pred = classifier.predict(X_test)
+print("Accuracy:", accuracy_score(Y_test, Y_pred))
