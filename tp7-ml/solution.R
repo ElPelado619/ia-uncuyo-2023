@@ -35,9 +35,8 @@ data_test <-  readr::read_csv("./data/arbolado-mza-dataset-test.csv",col_types =
 
 summary(data_train)
 table(data_train$inclinacion_peligrosa)
-
 colnames(data_train)
-# 4: Altura 6: Diametro_tronco
+
 data_train <- data_train[, -c(1,3,4,9,10,11)]
 colnames(data_train)
 
@@ -50,7 +49,6 @@ rounded_coefficients <- rounded_coefficients[order(rounded_coefficients, decreas
 print(rounded_coefficients)
 
 predictions <- predict(model, newdata = data_test, type = "response")
-
 umbral <- 0.16
 predictions_class <- ifelse(predictions >= umbral, 1, 0)
 
