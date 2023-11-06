@@ -4,6 +4,7 @@ suppressMessages(library(readr))
 suppressMessages(library(dplyr))
 library(glm2)
 library(pROC)
+library(ggplot2)
 
 data_train <-  readr::read_csv("./data/arbolado-mza-dataset.csv",col_types = cols(
   id = col_integer(),
@@ -39,13 +40,13 @@ data_train<-data_train %>% mutate(inclinacion_peligrosa=
                                     ifelse(inclinacion_peligrosa=='1','si','no'))
 data_train$inclinacion_peligrosa <-as.factor(data_train$inclinacion_peligrosa)
 
+train_formula <- inclinacion_peligrosa ~ especie + diametro_tronco
 logistic_model <- 
-  glm(inclinacion_peligrosa ~  altura + circ_tronco_cm +
-        diametro_tronco, data = data_train, 
+  glm(formula = train_formula, data = data_train, 
       family = binomial(link = 'logit'))
 preds_logistic <- predict(logistic_model, newdata = data_test, type = 'response')
 
-umbral <- 0.10581
+umbral <- 0.17
 # Transforma las probabilidades en clases
 preds_logistic_class <- ifelse(preds_logistic >= umbral, "si", "no")
 
