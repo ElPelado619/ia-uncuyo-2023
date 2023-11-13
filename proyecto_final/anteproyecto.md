@@ -1,12 +1,13 @@
-﻿# <a name="_vzai7sk315we"></a>“Buscaminas: Un enfoque en CSP y en Machine Learning”
-#### <a name="_9n961f1qy8qz"></a>Code: MS-CSP-ML
+﻿# <a name="_vzai7sk315we"></a>“Buscaminas: Un enfoque en CSP y en Algoritmos Genéticos”
+#### <a name="_9n961f1qy8qz"></a>Code: MS-CSP-GA
 ## <a name="_gmp9n15xozyt"></a>Integrantes
 - Mangione, Gabriel (13755)
 - Yornet de Rosas, Agustín (13921)
 ## <a name="_60fw88x1nlg9"></a>Introducción
 El juego Buscaminas, también conocido como Minesweeper, es un rompecabezas diseñado para un solo jugador, cuyo objetivo principal es despejar todas las celdas en un tablero rectangular sin activar las minas dispersas en el mismo. Buscaminas fue inicialmente lanzado en 1989 como parte del paquete de entretenimiento de Microsoft. A pesar de la percepción común de que Buscaminas implica adivinanza, en realidad se puede resolver de manera estratégica. Este rompecabezas puede ser resuelto por cualquier individuo que aplique la estrategia adecuada, y también puede ser abordado por programas que empleen soluciones algorítmicas.
 
-El objetivo de nuestro proyecto es desarrollar un agente capaz de resolver partidas de Buscaminas, con el propósito de competir con otras soluciones algorítmicas previamente propuestas para este problema. Para lograr este objetivo, plantearemos el problema de *"resolver una partida de Buscaminas en un tablero de tamaño mxn con una cantidad de bombas igual a k"* como un problema de satisfacción de restricciones y como un problema abordable mediante machine learning.
+El objetivo de nuestro proyecto es desarrollar un agente capaz de resolver partidas de Buscaminas, con el propósito de competir con otras soluciones algorítmicas previamente propuestas para este problema. Para lograr este objetivo, plantearemos el problema de *"resolver una partida de Buscaminas en un tablero de tamaño mxn con una cantidad de bombas igual a k"* como un problema de satisfacción de restricciones y como un problema abordable mediante algoritmos genéticos.
+
 ## <a name="_jxkrjkmmk6iz"></a>Descripción del juego
 Cuando un jugador inicia el juego, el programa inicializa un tablero de dimensiones m filas y n columnas, que contendrá celdas inicialmente vacías. El inicio del juego se efectúa cuando el jugador hace clic en una de las celdas, lo que conlleva a la revelación del valor asociado a dicha celda. La estrategia de juego se fundamenta en la interpretación de los valores asignados a las celdas numeradas. Los valores de estas celdas oscilan en el rango de 1 a 8, lo cual refleja el número de minas adyacentes a la celda en cuestión. Por ejemplo, una celda con el valor "8" indica que está rodeada por minas en todas sus celdas adyacentes. Si una celda se encuentra vacía, el programa procederá a mostrar todas las celdas adyacentes hasta que el perímetro de celdas accesibles esté compuesto únicamente por celdas numeradas.
 
@@ -42,12 +43,11 @@ Algunas estrategias que se han visto hasta el momento son:
 - Random
 - DFS Backtracking [1]
 
-Sin embargo, hay otras estrategias que también pueden ser consideradas, como:
+### <a name="_h98k5bopuhef"></a>Construcción de agente con enfoque en Algoritmos Genéticos
+La segunda tarea implica diseñar y construir un agente, usando un Algoritmo Genético, que resuleva partidas buscaminas en sus distintas dificultades. Es posible definir al buscaminas como un problema de optimización: "Dado un tablero con $m\times n$ celdas y $k$ minas, el objetivo del agente es retornar el mínimo número de *clicks* necesarios para descubrir todas las celdas vacías". Por consecuente, es posible la construcción de un GA que permita optimizar nuestro problema. 
 
-- Genetic Algorithms
-- Single Point Strategies [3]
-### <a name="_h98k5bopuhef"></a>Construcción de agente con enfoque en Machine Learning
-La segunda tarea implica la generación de un conjunto de tableros de Buscaminas previamente despejados, destinados a entrenar a uno de los dos agentes. El propósito de este entrenamiento es permitir al agente adquirir la capacidad de reconocer patrones de resolución en el tablero, que posteriormente empleará en la resolución de partidas de Buscaminas.
+Sostenemos que un Algoritmo Genético es una opción adecuada para nuestro problema, debido a que su complejidad temporal es cercana a $O(n)$, incluso cuando las dimensiones del problema aumentan. En nuestro proyecto, se asemeja a aumentar la dificultad de cada partida, donde el tamaño del tablero y la densidad de las minas en el mismo varían. Además, a diferencia de otros algoritmos de búsqueda local, requieren menos memoria y pueden escapar de óptimos locales.
+
 ### <a name="_dc0h4wotfd52"></a>Construcción de agente con enfoque en CSP
 La tercera tarea implica la construcción de un agente que emplee diversas técnicas de resolución para abordar problemas de satisfacción de restricciones, incluyendo el algoritmo de propagación de restricciones AC-3 y el método de backtracking.
 ### <a name="_otie2opzhl45"></a>Ejecución de agentes
@@ -62,7 +62,7 @@ Para evaluar el rendimiento de los agentes, se utilizarán las siguientes métri
 | :- | :- | :- | :- | :- |
 |Random|0\.00%|0\.00%|0\.00%|0\.00%|
 |Backtracking|0\.00%|0\.00%|0\.00%|0\.00%|
-|ML|0\.00%|0\.00%|0\.00%|0\.00%|
+|Genetic|0\.00%|0\.00%|0\.00%|0\.00%|
 |CSP|0\.00%|0\.00%|0\.00%|0\.00%|
 
 
@@ -74,7 +74,7 @@ Para evaluar el rendimiento de los agentes, se utilizarán las siguientes métri
 | :- | :- | :- | :- | :- |
 |Random|0\.00s|0\.00s|0\.00s|0\.00s|
 |Backtracking|0\.00s|0\.00s|0\.00s|0\.00s|
-|ML|0\.00s|0\.00s|0\.00s|0\.00s|
+|Genetic|0\.00s|0\.00s|0\.00s|0\.00s|
 |CSP|0\.00s|0\.00s|0\.00s|0\.00s|
 
 1. Cantidad de estados promedios que necesitó cada agente para ganar una partida:
@@ -85,7 +85,7 @@ Para evaluar el rendimiento de los agentes, se utilizarán las siguientes métri
 | :- | :- | :- | :- | :- |
 |Random|0 states|0 states|0 states|0 states|
 |Backtracking|0 states|0 states|0 states|0 states|
-|ML|0 states|0 states|0 states|0 states|
+|Genetic|0 states|0 states|0 states|0 states|
 |CSP|0 states|0 states|0 states|0 states|
 
 De esta manera, estamos en capacidad de abordar cuestiones cruciales en el desarrollo de nuestro proyecto:
@@ -107,7 +107,7 @@ De las métricas anteriormente planteadas, subyace una nueva:
 | :- | :- | :- | :- | :- |
 |Random|0\.00%|0\.00%|0\.00%|0\.00%|
 |Backtracking|0\.00%|0\.00%|0\.00%|0\.00%|
-|ML|0\.00%|0\.00%|0\.00%|0\.00%|
+|Genetic|0\.00%|0\.00%|0\.00%|0\.00%|
 |CSP|0\.00%|0\.00%|0\.00%|0\.00%|
 
 En comparación con las métricas anteriores, esta métrica permite evaluar el desempeño de los agentes en situaciones en las que el azar puede influir en el desarrollo del juego. Un alto porcentaje de casillas descubiertas sugiere que existe un porcentaje reducido de casillas que podrían no resolverse correctamente debido al azar. Sin embargo, a través del análisis de patrones, es posible realizar predicciones precisas en tales situaciones o incluso evitar por completo estos escenarios.
@@ -123,14 +123,16 @@ Si nuestro proyecto satisface los criterios de evaluación establecidos por la c
 ## <a name="_onln34d9leyl"></a>Listado de Actividades a Realizar
 - *Actividad 1.* Investigación y recopilación de técnicas algorítmicas para resolver partidas de buscaminas. [7d]
 - *Actividad 2.* Implementación de código fuente base para la ejecución de algoritmos. [3d]
-- *Actividad 3.* Diseño algorítmico para resolver buscaminas por medio de técnicas CSP.* [4d]
-- *Actividad 4.* Generación de tableros de buscaminas, y entrenamiento, testeo, validación de agente por medio de Machine Learning. [4d]
+- *Actividad 3.* Diseño algorítmico para resolver buscaminas por medio de técnicas CSP. [4d]
+- *Actividad 4.* Diseño de agente para resolver buscaminas por medio de un algoritmo genético. [4d]
 - *Actividad 5.* Implementación de agentes dentro del código. [4d]
 - *Actividad 6.* Ejecución de agentes sobre un board set y recopilación de resultados. [2d]
 - *Actividad 7.* Evaluación de resultados por medio de métricas. [2d]
 - *Actividad 8.* Escritura del informe final. [7d]
 
-![](Aspose.Words.d71ff86b-9c54-4b4e-ae2f-b17705062134.001.png)
+
+
+![Alt text](image.png)
 ## <a name="_cb37z39ae0ow"></a>Bibliografía
 [1] Nayotama Pradipta (2022). *Implementation of Backtracking Algorithm in Minesweeper.* Link: <https://informatika.stei.itb.ac.id/~rinaldi.munir/Stmik/2021-2022/Makalah/Makalah-IF2211-Stima-2022-K2%20(30).pdf>
 
